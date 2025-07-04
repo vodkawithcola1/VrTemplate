@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -7,13 +8,16 @@ public class ButtonStart : MonoBehaviour
     public Transform handTransform;
     public GameObject uiRoot;
     public GameObject points;
+    public FishSpawner fishSpawner;
 
     private GameObject currentWeapon;
+    
 
     public void OnStartButtonPressed()
     {
+        fishSpawner.StartSpawning();
         Debug.Log("Start gry z przyciskiem VR!");
-
+        
         if (weaponPrefab != null && handTransform != null)
         {
             currentWeapon = Instantiate(weaponPrefab, handTransform);

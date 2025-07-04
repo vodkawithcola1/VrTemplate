@@ -386,6 +386,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &110646526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 110646529}
+  - component: {fileID: 110646528}
+  - component: {fileID: 110646527}
+  - component: {fileID: 110646530}
+  m_Layer: 9
+  m_Name: Player
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &110646527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110646526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6acc987a9a31c6e4b8cd09c4e8aefeff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &110646528
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110646526}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &110646529
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110646526}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16.013401, y: -6.3069906, z: 9.628338}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &110646530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110646526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef96807a6144c947b7e8d5a5e4cd7b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!4 &139073602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8539027984983332557, guid: f5ee409d69254d64da7a3b74d31a5a40, type: 3}
@@ -3542,6 +3622,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1261272180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1261272182}
+  - component: {fileID: 1261272181}
+  m_Layer: 0
+  m_Name: FishSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1261272181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261272180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f111e73e9c9c04b41b954810002c3dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishPrefab: {fileID: 7158194965051351969, guid: 89d53953a15589246b82d6b81f6e832f, type: 3}
+  spawnPointsParent: {fileID: 910728674}
+  spawnInterval: 3
+--- !u!4 &1261272182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261272180}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.4240103, y: -2.4342167, z: -0.76190305}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1284901262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d2168993808fb8c4a9f944771cb8cc90, type: 3}
@@ -5916,10 +6043,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786cca0142b1b7b4e88b159a42b514c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 4431395845177104615, guid: 54bb15cd0b0f58e4fb80d27b4cba7b11, type: 3}
+  weaponPrefab: {fileID: 5297367726619216132, guid: c04d9dfd0a1723345859018e006f67d7, type: 3}
   handTransform: {fileID: 2049925576}
   uiRoot: {fileID: 456338647}
   points: {fileID: 1509491733}
+  fishSpawner: {fileID: 1261272181}
 --- !u!1 &1891079937
 GameObject:
   m_ObjectHideFlags: 0
@@ -8010,14 +8138,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2049925577}
     m_Modifications:
-    - target: {fileID: 2170061526446600939, guid: 65847589f926b734d9eaed6e25f0046b, type: 3}
-      propertyPath: m_InteractorSource
-      value: 
-      objectReference: {fileID: 556943861}
-    - target: {fileID: 8652840375374309331, guid: 65847589f926b734d9eaed6e25f0046b, type: 3}
-      propertyPath: m_HapticImpulsePlayer
-      value: 
-      objectReference: {fileID: 2049925578}
     - target: {fileID: 893022157044498267, guid: c5c7d400e4c7b2a1a8cac0f80a572998, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8062,6 +8182,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Hand Visual
       objectReference: {fileID: 0}
+    - target: {fileID: 2170061526446600939, guid: 65847589f926b734d9eaed6e25f0046b, type: 3}
+      propertyPath: m_InteractorSource
+      value: 
+      objectReference: {fileID: 556943861}
+    - target: {fileID: 8652840375374309331, guid: 65847589f926b734d9eaed6e25f0046b, type: 3}
+      propertyPath: m_HapticImpulsePlayer
+      value: 
+      objectReference: {fileID: 2049925578}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9528,3 +9656,5 @@ SceneRoots:
   - {fileID: 910728674}
   - {fileID: 1509491736}
   - {fileID: 2034485922}
+  - {fileID: 1261272182}
+  - {fileID: 110646529}
