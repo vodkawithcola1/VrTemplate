@@ -1,36 +1,66 @@
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FishSpawner : MonoBehaviour
 {
     public GameObject fishPrefab;
-    public Transform spawnPointsParent;
-    public float spawnInterval = 3f;
-    
-    private Transform[] spawnPoints;
+    public Transform spawnPointsParent;  // Obiekt, którego dzieci będą punktami spawn
 
-    void Start()
+    private List<Transform> spawnPoints = new List<Transform>();
+    private List<GameObject> spawnedFish = new List<GameObject>();
+    private bool spawning = false;
+    public float spawnInterval = 2f;
+
+    void Awake()
     {
-        // Pobieramy wszystkie dzieci jako spawnpointy
-        spawnPoints = new Transform[spawnPointsParent.childCount];
-        for (int i = 0; i < spawnPoints.Length; i++)
+        // Pobierz wszystkie dzieci spawnPointsParent jako punkty spawn
+        if (spawnPointsParent != null)
         {
-            spawnPoints[i] = spawnPointsParent.GetChild(i);
+            foreach (Transform child in spawnPointsParent)
+            {
+                spawnPoints.Add(child);
+            }
         }
-        
-       
+        else
+        {
+            Debug.LogWarning("Nie ustawiono spawnPointsParent! Dodaj obiekt w Inspectorze.");
+        }
     }
 
     public void StartSpawning()
     {
-        InvokeRepeating(nameof(SpawnFish), 3f, spawnInterval);
+        spawning = true;
+        InvokeRepeating(nameof(SpawnFish), 0f, spawnInterval);
+    }
+
+    public void StopSpawning()
+    {
+        spawning = false;
+        CancelInvoke(nameof(SpawnFish));
     }
 
     void SpawnFish()
     {
-        if (spawnPoints.Length == 0) return;
+        if (!spawning) return;
 
-        Transform spawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        Instantiate(fishPrefab, spawn.position, spawn.rotation);
+        if (spawnPoints.Count == 0)
+        {
+            Debug.LogWarning("Brak punktów spawnu (dzieci spawnPointsParent).");
+            return;
+        }
+
+        int index = Random.Range(0, spawnPoints.Count);
+        GameObject fish = Instantiate(fishPrefab, spawnPoints[index].position, Quaternion.identity);
+        spawnedFish.Add(fish);
+    }
+
+    public void DestroyAllFish()
+    {
+        foreach (GameObject fish in spawnedFish)
+        {
+            if (fish != null)
+                Destroy(fish);
+        }
+        spawnedFish.Clear();
     }
 }

@@ -5,6 +5,9 @@ public class FishHealth : MonoBehaviour
     public float maxHP = 100f;
     private float currentHP;
 
+    // Ile punktów dodaje ta ryba po jej zniszczeniu
+    public int scoreValue = 10;
+
     void Start()
     {
         currentHP = maxHP;
@@ -24,6 +27,14 @@ public class FishHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log($"{gameObject.name} umarł.");
-        Destroy(gameObject);  // niszczy obiekt ryby
+
+        // Dodaj punkty do wyniku
+        if (ScoreManager.instance != null)
+        {
+            ScoreManager.instance.AddScore(scoreValue);
+
+        }
+
+        Destroy(gameObject);  // usuwa obiekt ryby
     }
 }

@@ -2,28 +2,38 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
-    private int currentHealth;
+    public float maxHP = 100f;
+    private float currentHP;
 
     void Start()
     {
-        currentHealth = maxHealth;
+        currentHP = maxHP;
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
-        currentHealth -= amount;
-        Debug.Log("Gracz dostał obrażenia. HP: " + currentHealth);
+        currentHP -= amount;
+        Debug.Log($"Gracz dostał {amount} DMG. HP: {currentHP}/{maxHP}");
 
-        if (currentHealth <= 0)
+        if (currentHP <= 0)
         {
             Die();
         }
     }
 
-    void Die()
+    private void Die()
     {
-        Debug.Log("Gracz zginął!");
-        // tutaj możesz dodać respawn, koniec gry, itd.
+        Debug.Log("Gracz zginął.");
+        if (ScoreManager.instance != null)
+        {
+            ScoreManager.instance.EndGame();
+        }
+
+        // np. zablokuj ruch, strzelanie itd.
+        
+    }
+    public void ResetHP()
+    {
+        currentHP = maxHP;
     }
 }

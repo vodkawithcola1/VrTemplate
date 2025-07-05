@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class ButtonStart : MonoBehaviour
 {
-    public GameObject weaponPrefab;
-    public Transform handTransform;
+    public GameObject weapon; // ← nie prefab, tylko gotowy obiekt z hierarchy!
     public GameObject uiRoot;
     public GameObject points;
     public FishSpawner fishSpawner;
-
-    private GameObject currentWeapon;
-    
+    public GameObject menurock;
+    public PlayerHealth playerHealth;
 
     public void OnStartButtonPressed()
     {
         fishSpawner.StartSpawning();
         Debug.Log("Start gry z przyciskiem VR!");
-        
-        if (weaponPrefab != null && handTransform != null)
+
+        if (weapon != null)
         {
-            currentWeapon = Instantiate(weaponPrefab, handTransform);
-            currentWeapon.transform.localPosition = new Vector3(0f, -0.05f, 0.1f);
-            currentWeapon.transform.localRotation = Quaternion.Euler(-90f, 0f, 0f);
+            weapon.SetActive(true); // ← zamiast Instantiate
+        }
+
+        if (points != null)
+        {
             points.SetActive(true);
         }
 
@@ -30,5 +30,14 @@ public class ButtonStart : MonoBehaviour
         {
             uiRoot.SetActive(false);
         }
+
+        if (menurock!=null)
+        {
+            menurock.SetActive(false);
+        }
+        ScoreManager.instance.score = 0;
+        ScoreManager.instance.scoreText.text = "Points: 0";
+        playerHealth.ResetHP();
+        
     }
 }
