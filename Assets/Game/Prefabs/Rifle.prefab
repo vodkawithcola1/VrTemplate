@@ -118,4 +118,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6720697504503354116, guid: c770234194205744d93830a98de52348, type: 3}
   firePoint: {fileID: 5880092074688168442}
-  bulletSpeed: 10
+  bulletSpeed: 30
