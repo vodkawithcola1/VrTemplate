@@ -465,7 +465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef96807a6144c947b7e8d5a5e4cd7b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 10
 --- !u!4 &139073602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8539027984983332557, guid: f5ee409d69254d64da7a3b74d31a5a40, type: 3}
@@ -3125,7 +3125,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7915967369019904793, guid: fd28f23af44f73f4a95e33435872ad15, type: 3}
       propertyPath: m_Text
-      value: Survive
+      value: 'Play
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 7915967369019904793, guid: fd28f23af44f73f4a95e33435872ad15, type: 3}
       propertyPath: m_FontData.m_FontSize
@@ -7178,7 +7180,7 @@ MonoBehaviour:
   points: {fileID: 1509491733}
   fishSpawner: {fileID: 1261272181}
   menurock: {fileID: 1858565900}
-  playerHealth: {fileID: 0}
+  playerHealth: {fileID: 110646530}
 --- !u!1 &1891079937
 GameObject:
   m_ObjectHideFlags: 0
