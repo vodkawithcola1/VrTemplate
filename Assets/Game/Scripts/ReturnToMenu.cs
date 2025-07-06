@@ -24,7 +24,7 @@ public class ReturnToMenu : MonoBehaviour
 
         // Usuń broń (jeśli istnieje)
         if (weaponObject != null)
-            Destroy(weaponObject);
+            weaponObject.SetActive(false);
         else
         {
             GameObject found = GameObject.FindWithTag("Weapon");
